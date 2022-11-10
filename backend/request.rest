@@ -1,0 +1,14 @@
+GET http://localhost:3000/users HTTP/1.1
+
+###
+
+POST http://localhost:3000/users HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Iwan Safrudin",
+    "email": "iwansafr@gmail.com",
+    "password":"123456",
+    "confPassword":"123456"
+
+}

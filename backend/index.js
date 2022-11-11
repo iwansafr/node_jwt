@@ -18,12 +18,17 @@ try {
     console.log(error)
 }
 
-app.use(cors())
+const port = 3000
+
+app.use(cors({
+    credentials:true,
+    origin:'http://localhost:'+port
+}))
 app.use(cookieParser())
 app.use(express.json())
 app.use(router)
 
-const port = 3000
+
 app.listen(port, ()=>{
     console.log('server running at port '+port)
 })

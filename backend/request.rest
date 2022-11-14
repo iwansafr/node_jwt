@@ -1,5 +1,5 @@
 GET http://localhost:3000/users HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWUiOiJJd2FuIFNhZnJ1ZGluIiwiZW1haWwiOiJpd2Fuc2FmckBnbWFpbC5jb20iLCJpYXQiOjE2NjgwNTM0MDUsImV4cCI6MTY2ODA1MzQyNX0.NOQ29EvE2VhD7F21mzgrghlJ4PkXtbk8441E9bskUbs
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWUiOiJJd2FuIFNhZnJ1ZGluIiwiZW1haWwiOiJpd2Fuc2FmckBnbWFpbC5jb20iLCJpYXQiOjE2NjgwNTQxODcsImV4cCI6MTY2ODA1NDIwN30.m_x7qnHMqQgZ2tf0PCJIXwwUbvY1IwrjhdbYuifG1wM
 
 ###
 
@@ -23,3 +23,8 @@ Content-Type: application/json
     "password":"123456"
 }
 
+###
+GET http://localhost:3000/token HTTP/1.1
+
+###
+DELETE http://localhost:3000/logout

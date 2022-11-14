@@ -18,11 +18,11 @@ try {
     console.log(error)
 }
 
-const port = 3000
+const port = 4000
 
 app.use(cors({
     credentials:true,
-    origin:'http://localhost:'+port
+    origin:'http://localhost:3000'
 }))
 app.use(cookieParser())
 app.use(express.json())

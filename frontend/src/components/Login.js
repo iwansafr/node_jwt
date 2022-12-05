@@ -7,6 +7,10 @@ const Login = () => {
   const [password, setPassword] = useState('')
   const [msg, setMsg] = useState('')
   const navigate = useNavigate()
+  const alert = msg ? <div class="notification is-danger">
+      <button class="delete"></button>
+      {msg}
+    </div> : null;
   const Auth = async(e) => {
     e.preventDefault()
     try {
@@ -28,17 +32,17 @@ const Login = () => {
           <div className="columns is-centered">
             <div className="column is-4-desktop">
                 <form className="box" onSubmit={Auth}>
-                  <p className='has-text-center'>{msg}</p>
+                  {alert}
                     <div className="field mt-5">
                         <label className="label">Email or Username</label>
                         <div className="controls">
-                            <input type="text" className='input' placeholder='Username' value={email} onChange={(e)=>setEmail(e.target.value)} />
+                            <input required type="text" className='input' placeholder='Email or Username' value={email} onChange={(e)=>setEmail(e.target.value)} />
                         </div>
                     </div>
                     <div className="field mt-5">
                         <label className="label">Password</label>
                         <div className="controls">
-                            <input type="password" className='input' placeholder='********' value={password} onChange={(e)=>setPassword(e.target.value)} />
+                            <input required type="password" className='input' placeholder='********' value={password} onChange={(e)=>setPassword(e.target.value)} />
                         </div>
                     </div>
                     <div className="field mt-5">

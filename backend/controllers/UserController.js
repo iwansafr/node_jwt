@@ -36,18 +36,25 @@ export const Register = async(req, res) => {
 
 export const Login = async(req, res) => {
     try {
-        const user = await Users.findAll({
-            where:{
-                email: req.body.email
-            }
+        let user = await Users.findOne({
+            where:[
+                    {email: req.body.email},
+            ]
         })
-        const match = await bcrypt.compare(req.body.password, user[0].password)
+        if(user === null){
+            user = await Users.findOne({
+                where:[
+                        {name: req.body.email},
+                ]
+            })  
+        }
+        const match = await bcrypt.compare(req.body.password, user.password)
         if(!match) return res.status(400).json({
             msg: "Wrong Password"
         })
-        const userId = user[0].id
-        const name = user[0].name
-        const email = user[0].email
+        const userId = user.id
+        const name = user.name
+        const email = user.email
         const accessToken = jwt.sign({userId,name,email},process.env.ACCESS_TOKEN_SECRET,{
             expiresIn: '20s'
         })

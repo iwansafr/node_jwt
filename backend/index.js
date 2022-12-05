@@ -5,6 +5,7 @@ import router from "./routes/index.js"
 import dotenv from "dotenv"
 import cookieParser from "cookie-parser"
 import cors from "cors"
+import Categories from "./models/Category.js"
 
 dotenv.config()
 
@@ -14,6 +15,7 @@ try {
     await db.authenticate()
     console.log("Database Connected ...")
     // await Users.sync()
+    // await Categories.sync();
 } catch (error) {
     console.log(error)
 }
